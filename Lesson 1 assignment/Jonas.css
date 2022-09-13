@@ -74,3 +74,36 @@ h1 + p {
     width: 100%;
     text-align: center;
   }
+
+
+
+  .menu {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  svg {
+    cursor: pointer;
+  }
+  svg rect {
+    transition: all 0.3s ease-in-out;
+  }
+  svg:hover .photo {
+    x: 0;
+    opacity: 0;
+  }
+  svg:hover .top {
+    transform: rotate(45deg);
+    transform-origin: center top;
+    x: 50px;
+    y: 35px;
+  }
+  svg:hover .bottom {
+    transform: rotate(-45deg);
+    transform-origin: center top;
+    x: -20px;
+    y: 25px;
+  }
+  
