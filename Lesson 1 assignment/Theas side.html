@@ -2,17 +2,14 @@
 <html>
     <head>
         <style>
-body {background-color: #ffe4c4;font-family: lucida 'Courier New', Courier, monospace;}
+body {background-color: #efd9f3;font-family: lucida 'Courier New', Courier, monospace;}
 h1 {color:cornflowerblue; text-align: center;}
-p {background-color: aquamarine;}
+h2 {color:blue;}
 ul {background-color: deeppink;}
-.image{
-    width: 50%;
-}
-.image  > img{
-    width: 50%;
-}
 
+.image  > img{
+    width: 15%;float:right
+}
 
         </style>
         <title>Thea Frost</title>
@@ -21,15 +18,46 @@ ul {background-color: deeppink;}
 
     <Body>
 
-       <h1>Theas side</h1> 
+       <h1>
+        <svg height="150" width="500">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:rgb(207, 18, 160);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgba(255, 0, 195, 0.272);stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="250" cy="70" rx="200" ry="55" fill="url(#grad1)" />
+            <text fill="#ffffff" font-size="45" font-family="Verdana" x="150" y="86">Theas side</text>
+           
+          </svg>
+        
+        </h1> 
        <div class="image"> 
         <img  src="./mig.jpg" alt="thea" >
     </div>
-        <h2><i>Dette er en side om mig</i> </h2>
+        <h2><i>
+            <svg width="1200" height="100">
+                <g transform="translate(0,40)">
+                  <text id="TextElement" x="0" y="0" style="font-family:Verdana;font-size:24"> Dette er en side om mig!
+                    <animateMotion path="M 0 0 L 600 0" dur="10s" fill="freeze" repeatCount="indefinite"/>
+                  </text>
+                </g>
+           
+              </svg>
+            
+            
+            
+            
+            
+            </i> </h2>
+
         <h3>Jeg læser Cand.IT Webkommunikation</h3>
 
-        <p>Jeg hedder Thea, er født og opvokset i Århus med min mor og far og søster og bror. 
+        <p><b>Dette er mit liv i grove træk:</b></p>
+
+        <p>
             <ul>
+                <li>Jeg hedder Thea, er født og opvokset i Århus med min mor og far og søster og bror</li>
                 <li>Efter folkeskolen tog jeg på efterskole på Tommerup Efterskole</li>
                 <li>Derefter gik jeg på Århus Katedralskole, hvor jeg blev matematisk student i 2006</li>
                 <li>Så var jeg i militæret i Holstebro ved kamptropperne, dog bare som værnepligtig. Her mødte jeg ham der senere blev min mand</li>
@@ -43,8 +71,10 @@ ul {background-color: deeppink;}
                 <li>Flyttede til Vejle og byggede nyt hus i 2020</li>
                 <li>Er nu startet på cand.it-webkommunikation</li>
             </ul> 
-
-            <img src="./Familie.jpg" alt="mig og min familie" class="float">
+           
+            <div class="image"> 
+            <img src="./Familie.jpg" alt="mig og min familie">
+            </div>
             
             <br>
             <br>
@@ -55,13 +85,120 @@ ul {background-color: deeppink;}
         </p>
         <p>Jeg håber at disse to år bliver fyldt med en masse god læring og gode snakke med alle de gode medstuderende</p>
 
-        <svg viewBox="0 0 500 500">
+        <canvas id="canvas" width="400" height="400" style="background-color:#333"></canvas>
 
-            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-        </svg>
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+drawClock();
 
+function drawClock() {
+  ctx.arc(0, 0, radius, 0 , 2 * Math.PI);
+  ctx.fillStyle = "white";
+  ctx.fill();
+}
+function drawClock() {
+  drawFace(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+
+  grad = ctx.createRadialGradient(0, 0 ,radius * 0.95, 0, 0, radius * 1.05);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius * 0.15 + "px arial";
+  ctx.textBaseline = "middle";
+  ctx.textAlign = "center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius * 0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius * 0.85);
+    ctx.rotate(-ang);
+  }
+}
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+function drawTime(ctx, radius){
+  var now = new Date();
+  var hour = now.getHours();
+  var minute = now.getMinutes();
+  var second = now.getSeconds();
+  //hour
+  hour = hour%12;
+  hour = (hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
+  drawHand(ctx, hour, radius*0.5, radius*0.07);
+  //minute
+  minute = (minute*Math.PI/30)+(second*Math.PI/(30*60));
+  drawHand(ctx, minute, radius*0.8, radius*0.07);
+  // second
+  second = (second*Math.PI/30);
+  drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+  ctx.beginPath();
+  ctx.lineWidth = width;
+  ctx.lineCap = "round";
+  ctx.moveTo(0,0);
+  ctx.rotate(pos);
+  ctx.lineTo(0, -length);
+  ctx.stroke();
+  ctx.rotate(-pos);
+}
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+//drawClock();
+setInterval(drawClock, 1000);
+</script>
+<br>
+
+<svg height="30" width="200" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <a xlink:href="https://www.w3schools.com/graphics/" target="_blank">
+      <text x="0" y="15" fill="red">I love SVG!</text>
+    </a>
+   
+  </svg>
 
     </Body>
+    <br>
 
     <footer>
         <p>Kontaktoplysninger: thfro22@student.sdu.dk</p>
