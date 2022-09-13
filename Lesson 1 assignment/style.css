@@ -3,10 +3,14 @@ body {
     margin-right: 200px;
   border: 10px dotted black;
   padding: 15px;
- background-color: rgb(174, 174, 174);
+ background-image: url("https://img.freepik.com/free-vector/silhouette-twilight-forest-landscape-background_1308-69379.jpg?w=1380&t=st=1663057109~exp=1663057709~hmac=b2bd5d3b32246da6c1e6fa38e1cbe98d641dae2e713465542a53bec874efa7f5");
   background-clip: padding-box; 
 }
-  
+
+.testDiv {
+background-color: rgb(179, 179, 179);
+}
+
 h1 {
     color:rgb(36, 36, 239);
     padding: 15px;
@@ -20,7 +24,7 @@ h1 + p {
   
   p {
     font-size: 15px;
-    color: rgb(182, 71, 71);
+    color: rgb(100, 61, 61);
     font-family: Helvetica, Arial, sans-serif;
   }
 
