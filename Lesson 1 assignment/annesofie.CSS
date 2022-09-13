@@ -1,0 +1,25 @@
+h2,li
+   {color: blue;}
+   
+   h1
+   {color:green;}
+
+   h3
+   {color:tomato}
+
+   p,h1,h2,h3,footer,figure
+   {text-align-last: center;}
+
+   head,body, footer {
+    background-color: lightblue;
+    
+  }
+div
+{background-color: deepskyblue;
+    border:  5px solid blue;
+margin: 10 px;}
+
+img
+{ float: right;}
+
+
