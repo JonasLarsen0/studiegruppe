@@ -2,18 +2,19 @@
 <html lang="en">
 <link rel="stylesheet" href="style.css">
 <head>
-  <title>Web formats and standards</title>
+  <title>Jonas' page</title>
   <style>
-    #panda {
+    #photo {
         display: none;
     }
 </style>
 </head>
 <body>
-
-    
+  
 <header>
-  <h1>Welcome to a page about me </h1>
+  <div class="testDiv">
+  <h1>Jonas (Group 3) </h1>
+</div>
 </header>
 <article>
 <div class="testDiv">
@@ -23,7 +24,7 @@
 </article>
 
 <!-- This is an HTML comment -->
-
+<div class="testDiv">
 <h2>My skills and study group</h2>
 <p>Here i shoud write about myself and my prior knowledge of html and css.
 <br> but unfortunately.. <i>(I have a vary basic understanding of the tools and elements available) </i> </p>
@@ -31,13 +32,9 @@
     <br> <b>Take a look at other members of my study group here --> </b> 
 <A HREF="MAPPE/NAVN.html">Studiegruppe</A> </p>
 
-<p> <br> Try the button below. </p>
-
-<img id="panda"
-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Red_Panda_%2824986761703%29.jpg/1200px-Red_Panda_%2824986761703%29.jpg" alt="Red Panda"  
-width="550" height="400"/>
-
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 411 242">
+<p> <br> Also, try the button below. </p>
+</div>
+<svg id="photo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 411 242">
     <defs>
       <linearGradient id="paint0_linear" x1="159.8" x2="111.4" y1="19.4" y2="27.7" gradientUnits="userSpaceOnUse">
         <stop offset="0" stop-color="#FFF2D8" stop-opacity=".5"/>
@@ -152,7 +149,7 @@ Click me for a picture
 
 <script>
 function show() {
-    document.getElementById('panda')
+    document.getElementById('photo')
             .style.display = "block";
 
     document.getElementById('press')
