@@ -1,1 +1,68 @@
-<h1> hej </h1>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+/* Here each item is given a "name" which will determine its position inside grid-template-areas */
+#item1 { grid-area: header; }
+#item2 { grid-area: menu; }
+#item3 { grid-area: main; }
+#item4 { grid-area: right; }
+#item5 { grid-area: footer; }
+
+
+/* Here the template of the grid is defined using the grid-template-areas property. The number of columns and rows occupied by each item is specified using the item "names" defined by each items grid-area property */
+#grid-container {
+  display: grid;  
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main main right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;  
+  height: 80vh; /* Height relative to 1% of the height of the viewport */
+  
+/* it is possible to combine the use of the the grid-template-areas property with the grid-template-rows and grid-template-columns properties to further manipulate the height of rows and width of columns. For the most part, this will not be necessary */  
+  grid-template-rows: 150px 1fr 100px;
+  
+  
+/* However, using grid-template-columns in combination with grid-template-areas can quickly become intransparent if you start using absolute values for the width of columns. It also goes against basic principles of responsive design.
+ grid-template-columns: 300px 100px 200px auto auto auto;
+*/ 
+
+/* Instead use 100% or other relative size units when styling the width of columns */
+grid-template-columns: 25% 1fr 1fr 1fr 1fr 15%; 
+
+}
+
+/* The following CSS declarations are used to style all div elements inside elements with the class "grid-container" */
+#grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>The grid-area Property</h1>
+
+<p>You can use the <em>grid-area</em> property to name grid items.</p>
+
+<p>You can refer to the name when you set up the grid layout, by using the <em>grid-template-areas</em> property on the grid container.</p>
+
+<p>This grid layout contains six columns and three rows:</p>
+
+<div id="grid-container">
+  <div id="item1">Header</div>
+  <div id="item2">Menu</div>
+  <div id="item3">Main</div>  
+  <div id="item4">Right</div>
+  <div id="item5">Footer</div>
+</div>
+
+</body>
+</html>
