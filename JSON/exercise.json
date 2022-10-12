@@ -1,0 +1,31 @@
+{
+	"drinks": [{
+			"nameDrink": "Vodca Juice",
+			"mainIngredien": "Vodca",
+			"secoundaryIngredient": "Vodca",
+			"additionalIngredients": [{
+					"type:": "lime",
+					"amount": "2ml"
+				},
+				{
+					"type": "lemon",
+					"amount": "2ml"
+				}
+			]
+		},
+		{
+			"nameDrink": "Vodca Redbull",
+			"mainIngredien": "Vodca",
+			"secoundaryIngredient": "Redbull",
+			"additionalIngredients": [{
+					"type:": "sugar",
+					"amount": "2grams"
+				},
+				{
+					"type": "energy drink",
+					"amount": "30ml"
+				}
+			]
+		}
+    ]	
+}
